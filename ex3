@@ -1,0 +1,70 @@
+#include<iostream>
+#include<time.h>
+#include<conio.h>
+#include<stdio.h>
+#include<iomanip>
+#include<math.h>
+
+
+using namespace std;
+
+class Rational
+{
+public:
+    Rational(int = 1, int = 1, int = 1, int = 1);
+    void setRational(int, int, int, int);
+    int Plus(/*int ,int, int, int */);
+    void Print1();
+private:
+    int ch1, ch2;
+    int zn1, zn2;
+    int rez_ch1, rez_zn1;
+};
+
+Rational::Rational(int a1, int b1, int a2, int b2)
+{
+    setRational(a1, b1, a2, b2);
+}
+
+void Rational::setRational(int aa1, int bb1, int aa2, int bb2)
+{
+    ch1 = aa1;
+    ch2 = aa2;
+    if (bb1 == 0)
+    {
+        cout << "ERROR, \n";
+        while (bb1 == 0)
+        {
+            cout << "set right value: ";
+            cin >> bb1;
+        }
+    }
+    else zn1 = bb1;
+        while (bb2 == 0)
+        {
+            cout << "set right value: ";
+            cin >> bb2;
+        }
+     zn2 = bb2;
+}
+
+int Rational::Plus()
+{
+    rez_ch1 = ch1 * zn2 + ch2 * zn1;
+    rez_zn1 = zn1 * zn2;
+    return rez_ch1, rez_zn1;
+}
+
+void Rational::Print1()
+{
+    cout << rez_ch1 << "/" << rez_zn1;
+}
+
+int main()
+{
+    Rational r(1, 0, 3, 4);
+    r.Plus();
+    r.Print1();
+
+    return 0;
+}
