@@ -1,0 +1,41 @@
+#include <iostream>
+#include <conio.h>
+using namespace std;
+//Простий класс Date
+class Date {
+public:
+	Date(int = 1, int = 1, int = 1990); // конструктор за
+	//замовчанням
+
+	void print();
+private:
+	int month;
+	int day;
+	int year;
+
+};
+// Простий конструктор Date без перевірки діапазону
+Date::Date(int m, int d, int y)
+{
+	month = m;
+	day = d;
+	year = y;
+}
+// Друк дати в форматі mm-dd-yyyy
+void Date::print()
+{
+	cout <<month <<" - "  <<day <<" - " << year;
+}
+int main() {
+	Date date1(12, 2, 2002), date2; //date2 за замовченням 1.1.1990
+	cout << "date1 = ";
+
+	date1.print();
+	cout << endl << "date2 = ";
+	date2.print();
+	date2 = date1;
+	cout << endl << endl << "date2 = ";
+	date2.print();
+	
+	return 0;
+}
